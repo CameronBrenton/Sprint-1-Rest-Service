@@ -10,6 +10,6 @@ import java.util.List;
 
 
 @RepositoryRestResource(collectionResourceRel = "members", path = "members")
-public interface MemberRepository extends PagingAndSortingRepository<Person, Long> {
-    List<Member> findByLastName(@Param("name") String name);
+public interface MemberRepository extends PagingAndSortingRepository<Member, Long> {
+    List<Member> findById(@Param("id") Integer id);
 }
