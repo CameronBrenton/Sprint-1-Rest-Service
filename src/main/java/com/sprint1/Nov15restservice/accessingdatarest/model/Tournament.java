@@ -21,6 +21,19 @@ public class Tournament{
     @JoinColumn(name = "final_standings_id")
     private FinalStandings finalStandings;
 
+    public Tournament() {
+    }
+
+    public Tournament(LocalDate startDate, LocalDate endDate, String location, double entryFee, double cashPrizeAmount, Person participatingMembers, FinalStandings finalStandings) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+        this.entryFee = entryFee;
+        this.cashPrizeAmount = cashPrizeAmount;
+        this.participatingMembers = participatingMembers;
+        this.finalStandings = finalStandings;
+    }
+
     public LocalDate getStartDate() {
         return startDate;
     }
