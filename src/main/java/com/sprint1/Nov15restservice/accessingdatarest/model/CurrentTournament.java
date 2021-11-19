@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class CurrentTournaments {
+public class CurrentTournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -13,6 +13,14 @@ public class CurrentTournaments {
     @ManyToOne
     @JoinColumn(name = "current_tournament_id")
     private Tournament tournament;
+
+    public CurrentTournament() {
+    }
+
+    public CurrentTournament(LocalDate currentTournamentDate, Tournament tournament) {
+        this.currentTournamentDate = currentTournamentDate;
+        this.tournament = tournament;
+    }
 
     public Tournament getTournament() {
         return tournament;
