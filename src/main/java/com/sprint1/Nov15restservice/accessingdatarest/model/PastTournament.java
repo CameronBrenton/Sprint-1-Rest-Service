@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class PastTournaments {
+public class PastTournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

@@ -17,10 +17,10 @@ public class Member {
     private String membershipType;
     @ManyToOne
     @JoinColumn(name = "current_tournaments_id")
-    private CurrentTournaments currentTournaments;
+    private CurrentTournament currentTournaments;
     @ManyToOne
     @JoinColumn(name = "past_tournaments_id")
-    private PastTournaments pastTournaments;
+    private PastTournament pastTournaments;
 
     public Member() {
     }
@@ -68,19 +68,19 @@ public class Member {
         this.membershipType = membershipType;
     }
 
-    public CurrentTournaments getCurrentTournaments() {
+    public CurrentTournament getCurrentTournaments() {
         return currentTournaments;
     }
 
-    public void setCurrentTournaments(CurrentTournaments currentTournaments) {
+    public void setCurrentTournaments(CurrentTournament currentTournaments) {
         this.currentTournaments = currentTournaments;
     }
 
-    public PastTournaments getPastTournaments() {
+    public PastTournament getPastTournaments() {
         return pastTournaments;
     }
 
-    public void setPastTournaments(PastTournaments pastTournaments) {
+    public void setPastTournaments(PastTournament pastTournaments) {
         this.pastTournaments = pastTournaments;
     }
 }
