@@ -8,10 +8,18 @@ public class FutureTournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private LocalDate tournamentDate;
+    private LocalDate futureTournamentDate;
     @ManyToOne
     @JoinColumn(name = "future_tournament_id")
     private Tournament tournament;
+
+    public FutureTournament() {
+    }
+
+    public FutureTournament(LocalDate futureTournamentDate, Tournament tournament) {
+        this.futureTournamentDate = futureTournamentDate;
+        this.tournament = tournament;
+    }
 
     public long getId() {
         return id;
@@ -21,12 +29,12 @@ public class FutureTournament {
         this.id = id;
     }
 
-    public LocalDate getTournamentDate() {
-        return tournamentDate;
+    public LocalDate getFutureTournamentDate() {
+        return futureTournamentDate;
     }
 
-    public void setTournamentDate(LocalDate tournamentDate) {
-        this.tournamentDate = tournamentDate;
+    public void setFutureTournamentDate(LocalDate futureTournamentDate) {
+        this.futureTournamentDate = futureTournamentDate;
     }
 
     public Tournament getTournament() {
@@ -36,4 +44,6 @@ public class FutureTournament {
     public void setTournament(Tournament tournament) {
         this.tournament = tournament;
     }
+
+
 }

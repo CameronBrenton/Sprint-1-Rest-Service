@@ -8,21 +8,29 @@ public class PastTournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private LocalDate tournamentDate;
+    private LocalDate pastTournamentDate;
     @ManyToOne
     @JoinColumn(name = "past_tournament_id")
     private Tournament tournament;
+
+    public PastTournament() {
+    }
+
+    public PastTournament(LocalDate pastTournamentDate, Tournament tournament) {
+        this.pastTournamentDate = pastTournamentDate;
+        this.tournament = tournament;
+    }
 
     public Tournament getPastTournament() {
         return tournament;
     }
 
-    public LocalDate getTournamentDate() {
-        return tournamentDate;
+    public LocalDate getPastTournamentDate() {
+        return pastTournamentDate;
     }
 
-    public void setTournamentDate(LocalDate tournamentDate) {
-        this.tournamentDate = tournamentDate;
+    public void setPastTournamentDate(LocalDate pastTournamentDate) {
+        this.pastTournamentDate = pastTournamentDate;
     }
 
     public Tournament getTournament() {
@@ -32,4 +40,14 @@ public class PastTournament {
     public void setTournament(Tournament tournament) {
         this.tournament = tournament;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 }
