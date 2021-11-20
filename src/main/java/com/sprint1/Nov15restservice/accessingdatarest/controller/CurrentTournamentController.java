@@ -50,17 +50,6 @@ public class CurrentTournamentController {
         }
     }
 
-//    @GetMapping("/tutorials/{id}")
-//    public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
-//        Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
-//
-//        if (tutorialData.isPresent()) {
-//            return new ResponseEntity<>(tutorialData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
     @PostMapping("/currentTournaments")
     public ResponseEntity<CurrentTournament> postTournament(@RequestBody CurrentTournament currentTournament) {
         try {
