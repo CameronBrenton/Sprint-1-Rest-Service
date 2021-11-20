@@ -89,4 +89,14 @@ public class Tournament{
     public void setFinalStandings(FinalStandings finalStandings) {
         this.finalStandings = finalStandings;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 }

@@ -37,4 +37,14 @@ public class CurrentTournament {
     public void setTournament(Tournament tournament) {
         this.tournament = tournament;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 }

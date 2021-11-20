@@ -83,4 +83,12 @@ public class Member {
     public void setPastTournaments(PastTournament pastTournaments) {
         this.pastTournaments = pastTournaments;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }
