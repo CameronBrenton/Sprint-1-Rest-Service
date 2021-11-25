@@ -35,6 +35,7 @@ public class PersonController {
         try {
             List<Person> people = new ArrayList<Person>();
 
+
             if (lastName == null && firstName == null)
                 personRepository.findAll().forEach(people::add);
             else if (lastName == null)
@@ -52,6 +53,37 @@ public class PersonController {
         }
     }
 
+    @GetMapping("/people/{id}")
+    public ResponseEntity<Person> getPeopleById(@PathVariable("id") long id) {
+
+        Optional<Person> peopleData = personRepository.findById(id);
+
+        if (peopleData.isPresent()){
+            return new ResponseEntity<>(peopleData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    /*@GetMapping("/search/people")
+    public ResponseEntity<List<Person>> getAllPeopleOptions(@RequestParam(required = false) Integer id) {
+        try {
+            List<Person> people = new ArrayList<Person>();
+
+
+
+
+            if (people.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(people, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    */
 
 
     @PostMapping("/people")
