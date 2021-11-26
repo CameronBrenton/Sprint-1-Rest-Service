@@ -12,5 +12,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "pastTournaments", path = "pastTournaments")
 public interface PastTournamentRepository extends PagingAndSortingRepository<PastTournament, Long> {
     List<PastTournament> findByPastTournamentDate(@Param("pastTournamentDate") String pastTournamentDate);
+
 }
 
