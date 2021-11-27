@@ -1,9 +1,12 @@
 package com.sprint1.Nov15restservice.model;
 
+import com.sprint1.Nov15restservice.accessingdatarest.model.FinalStandings;
 import com.sprint1.Nov15restservice.accessingdatarest.model.Person;
+import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class testPerson {
@@ -22,6 +25,13 @@ public class testPerson {
     }
 
     // Test Getters
+
+    @Test
+    public void testGetID(){
+        Person person  = new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333");
+        Assert.assertEquals(0, person.getId());
+    }
+
     @Test
     public void testGetFirstName(){
         Person person  = new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333");
@@ -47,6 +57,14 @@ public class testPerson {
     }
 
     // Test Setters
+
+    @Test
+    public void testSetId(){
+        Person person  = new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333");
+        person.setId(10);
+        Assert.assertTrue(person.getId() == 10);
+    }
+
     @Test
     public void testSetFirstName(){
         Person person  = new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333");

@@ -27,6 +27,14 @@ public class testTournament {
     }
 
     // Test Getters
+
+    @Test
+    public void testGetId(){
+        Tournament tournament  = new Tournament(LocalDate.of(2021,06,10), LocalDate.of(2021,06,20), "Rolling Hills, NL", 25.00, 500.00,
+                new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333"), new FinalStandings());
+        Assert.assertTrue(tournament.getId() != 1);
+    }
+
     @Test
     public void testGetStartDate(){
         Tournament tournament  = new Tournament(LocalDate.of(2021,06,10), LocalDate.of(2021,06,20), "Rolling Hills, NL", 25.00, 500.00,
@@ -70,14 +78,16 @@ public class testTournament {
         Assert.assertTrue(tournament.getFinalStandings() != null);
     }
 
+    //  Test Setters
+
     @Test
-    public void testGetId(){
+    public void testSetId(){
         Tournament tournament  = new Tournament(LocalDate.of(2021,06,10), LocalDate.of(2021,06,20), "Rolling Hills, NL", 25.00, 500.00,
                 new Person("Cameron", "Brenton", "camcc@cam.com", "777-3333"), new FinalStandings());
-        Assert.assertTrue(tournament.getId() != 1);
+        tournament.setId(7);
+        Assert.assertTrue(tournament.getId() == 7);
     }
 
-    //  Test Setters
     @Test
     public void testSetStartDate(){
         Tournament tournament  = new Tournament(LocalDate.of(2021,06,10), LocalDate.of(2021,06,20), "Rolling Hills, NL", 25.00, 500.00,
