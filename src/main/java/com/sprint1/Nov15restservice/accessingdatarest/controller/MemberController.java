@@ -56,7 +56,8 @@ public class MemberController {
     public ResponseEntity<Member> postMember(@RequestBody Member member) {
         try {
             Member _member = memberRepository
-                    .save(new Member(member.getPerson(), member.getMembershipStartDate(), member.getMembershipDuration(), member.getMembershipType()));
+                    .save(new Member(member.getPerson(), member.getMembershipStartDate(), member.getMembershipDuration(), member.getMembershipType(),
+                            member.getCurrentTournaments(), member.getPastTournaments()));
             return new ResponseEntity<>(_member, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
