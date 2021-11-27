@@ -28,6 +28,10 @@ public class FinalStandings{
         return tournament;
     }
 
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
+
     public Person getPerson() {
         return person;
     }
@@ -52,7 +56,4 @@ public class FinalStandings{
         this.id = id;
     }
 
-    public void setTournament(Tournament tournament) {
-        this.tournament = tournament;
-    }
 }
