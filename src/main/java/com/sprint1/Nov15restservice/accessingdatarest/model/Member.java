@@ -25,15 +25,14 @@ public class Member {
     public Member() {
     }
 
-    public Member(Person person, LocalDate membershipStartDate, LocalDate membershipDuration, String membershipType) {
+    public Member(Person person, LocalDate membershipStartDate, LocalDate membershipDuration, String membershipType, CurrentTournament currentTournament, PastTournament pastTournament) {
         this.person = person;
         this.membershipStartDate = membershipStartDate;
         this.membershipDuration = membershipDuration;
         this.membershipType = membershipType;
-        this.currentTournaments = null;
-        this.pastTournaments = null;
+        this.currentTournaments = currentTournament;
+        this.pastTournaments = pastTournament;
     }
-
 
 
     public Person getPerson() {
