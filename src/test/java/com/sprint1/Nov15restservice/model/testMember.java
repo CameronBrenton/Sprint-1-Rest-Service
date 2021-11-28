@@ -1,6 +1,7 @@
 package com.sprint1.Nov15restservice.model;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.*;
+import com.sprint1.Nov15restservice.accessingdatarest.model.PastTournament;
 import org.junit.Assert;
 import org.junit.Test;
 

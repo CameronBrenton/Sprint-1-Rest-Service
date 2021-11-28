@@ -1,5 +1,7 @@
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
+import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -19,10 +21,6 @@ public class PastTournament {
     public PastTournament(LocalDate pastTournamentDate, Tournament tournament) {
         this.pastTournamentDate = pastTournamentDate;
         this.tournament = tournament;
-    }
-
-    public Tournament getPastTournament() {
-        return tournament;
     }
 
     public LocalDate getPastTournamentDate() {

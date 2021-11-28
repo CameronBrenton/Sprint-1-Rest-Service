@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.PastTournament;
-import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.PastTournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,9 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.sprint1.Nov15restservice.accessingdatarest.model.CurrentTournament;
-import com.sprint1.Nov15restservice.accessingdatarest.repository.CurrentTournamentRepository;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -57,7 +53,7 @@ public class PastTournamentController {
     public ResponseEntity<PastTournament> postPastTournament(@RequestBody PastTournament pastTournament) {
         try {
             PastTournament _pastTournament = pastTournamentRepository
-                    .save(new PastTournament(pastTournament.getPastTournamentDate(), pastTournament.getPastTournament()));
+                    .save(new PastTournament(pastTournament.getPastTournamentDate(), pastTournament.getTournament()));
             return new ResponseEntity<>(_pastTournament, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
