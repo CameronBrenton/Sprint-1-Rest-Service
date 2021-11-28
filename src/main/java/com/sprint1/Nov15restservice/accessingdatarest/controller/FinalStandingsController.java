@@ -1,10 +1,9 @@
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.FinalStandings;
-import com.sprint1.Nov15restservice.accessingdatarest.model.FutureTournament;
-import com.sprint1.Nov15restservice.accessingdatarest.model.PastTournament;
+
 import com.sprint1.Nov15restservice.accessingdatarest.repository.FinalStandingsRepository;
-import com.sprint1.Nov15restservice.accessingdatarest.repository.FutureTournamentRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
