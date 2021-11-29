@@ -71,7 +71,7 @@ public class FutureTournamentController {
 
     // Put future tournaments by Dd
     @PutMapping("/futureTournaments/{id}")
-    public ResponseEntity<FutureTournament> updateFutureTournament(@PathVariable("id") long id, @RequestBody PastTournament futureTournament) {
+    public ResponseEntity<FutureTournament> updateFutureTournament(@PathVariable("id") long id, @RequestBody FutureTournament futureTournament) {
         Optional<FutureTournament> futureTournamentData = futureTournamentRepository.findById(id);
 
         if (futureTournamentData.isPresent()) {
