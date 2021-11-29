@@ -20,6 +20,7 @@ public class FutureTournamentController {
     @Autowired
     FutureTournamentRepository futureTournamentRepository;
 
+    // Get all future tournaments
     @GetMapping("/futureTournaments")
     public ResponseEntity<List<FutureTournament>> getAllFutureTournaments(@RequestParam(required = false) String futureTournamentDate) {
         try {
@@ -42,6 +43,7 @@ public class FutureTournamentController {
 
     }
 
+    // Get future tournaments by id
     @GetMapping("/futureTournaments/{id}")
     public ResponseEntity<FutureTournament> getFutureTournamentById(@PathVariable("id") long id) {
 
@@ -55,6 +57,7 @@ public class FutureTournamentController {
 
     }
 
+    // Post future tournaments
     @PostMapping("/futureTournaments")
     public ResponseEntity<FutureTournament> postFutureTournament(@RequestBody FutureTournament futureTournament) {
         try {
@@ -66,6 +69,7 @@ public class FutureTournamentController {
         }
     }
 
+    // Put future tournaments by Dd
     @PutMapping("/futureTournaments/{id}")
     public ResponseEntity<FutureTournament> updateFutureTournament(@PathVariable("id") long id, @RequestBody PastTournament futureTournament) {
         Optional<FutureTournament> futureTournamentData = futureTournamentRepository.findById(id);
@@ -80,6 +84,7 @@ public class FutureTournamentController {
         }
     }
 
+    // Delete future tournaments by Id
     @DeleteMapping("/futureTournaments/{id}")
     public ResponseEntity<HttpStatus> deleteFutureTournament(@PathVariable("id") long id) {
         try {

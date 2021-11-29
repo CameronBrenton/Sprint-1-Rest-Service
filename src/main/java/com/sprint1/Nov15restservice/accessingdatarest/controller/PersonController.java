@@ -1,4 +1,4 @@
-//CRUD
+// Person Controller class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import java.util.ArrayList;
@@ -30,6 +30,7 @@ public class PersonController {
     @Autowired
     PersonRepository personRepository;
 
+    // Get all People
     @GetMapping("/people")
     public ResponseEntity<List<Person>> getAllPeople(@RequestParam(required = false) String firstName, String lastName) {
         try {
@@ -53,6 +54,7 @@ public class PersonController {
         }
     }
 
+    // Get all People by Id
     @GetMapping("/people/{id}")
     public ResponseEntity<Person> getPeopleById(@PathVariable("id") long id) {
 
@@ -66,26 +68,7 @@ public class PersonController {
 
     }
 
-    /*@GetMapping("/search/people")
-    public ResponseEntity<List<Person>> getAllPeopleOptions(@RequestParam(required = false) Integer id) {
-        try {
-            List<Person> people = new ArrayList<Person>();
-
-
-
-
-            if (people.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-
-            return new ResponseEntity<>(people, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    */
-
-
+    // Post People
     @PostMapping("/people")
     public ResponseEntity<Person> postPeople(@RequestBody Person person) {
         try {
@@ -97,6 +80,7 @@ public class PersonController {
         }
     }
 
+    // Put People by Id
     @PutMapping("/people/{id}")
     public ResponseEntity<Person> updatePeople(@PathVariable("id") long id, @RequestBody Person person) {
         Optional<Person> personData = personRepository.findById(id);
@@ -113,6 +97,7 @@ public class PersonController {
         }
     }
 
+    // Delete People by Id
     @DeleteMapping("/people/{id}")
     public ResponseEntity<HttpStatus> deletePeople(@PathVariable("id") long id) {
         try {

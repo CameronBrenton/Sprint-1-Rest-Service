@@ -1,8 +1,7 @@
+// Final Standings Class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.FinalStandings;
-
-import com.sprint1.Nov15restservice.accessingdatarest.model.FutureTournament;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.FinalStandingsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ public class FinalStandingsController {
     @Autowired
     FinalStandingsRepository finalStandingsRepository;
 
+    // Get all final standings
     @GetMapping("/finalStandings")
     public ResponseEntity<List<FinalStandings>> getAllFinalStandings(@RequestParam(required = false) Integer id) {
         try {
@@ -43,6 +43,7 @@ public class FinalStandingsController {
 
     }
 
+    // Get final standings by Id
     @GetMapping("/finalStandings/{id}")
     public ResponseEntity<FinalStandings> getFinalStandingsById(@PathVariable("id") long id) {
 
@@ -56,6 +57,7 @@ public class FinalStandingsController {
 
     }
 
+    // Post final standings
     @PostMapping("/finalStandings")
     public ResponseEntity<FinalStandings> postFinalStandings(@RequestBody FinalStandings finalStandings) {
         try {
@@ -67,6 +69,7 @@ public class FinalStandingsController {
         }
     }
 
+    // Put final standings by id
     @PutMapping("/finalStandings/{id}")
     public ResponseEntity<FinalStandings> updateFinalStandings(@PathVariable("id") long id, @RequestBody FinalStandings finalStandings) {
         Optional<FinalStandings> finalStandingsData = finalStandingsRepository.findById(id);
@@ -82,6 +85,7 @@ public class FinalStandingsController {
         }
     }
 
+    // Delete final standings by id
     @DeleteMapping("/finalStandings/{id}")
     public ResponseEntity<HttpStatus> deleteFinalStandings(@PathVariable("id") long id) {
         try {

@@ -1,12 +1,10 @@
-//CRUD
+//Member Controller class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.sprint1.Nov15restservice.accessingdatarest.model.Person;
-import com.sprint1.Nov15restservice.accessingdatarest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +29,7 @@ public class MemberController {
     @Autowired
     MemberRepository memberRepository;
 
+    // Get all members
     @GetMapping("/members")
     public ResponseEntity<List<Member>> getAllMembers(@RequestParam(required = false) Integer id) {
         try {
@@ -52,6 +51,7 @@ public class MemberController {
         }
     }
 
+    // Get members by id
     @GetMapping("/members/{id}")
     public ResponseEntity<Member> getMemberById(@PathVariable("id") long id) {
 
@@ -65,6 +65,7 @@ public class MemberController {
 
     }
 
+    // Post members
     @PostMapping("/members")
     public ResponseEntity<Member> postMember(@RequestBody Member member) {
         try {
@@ -77,6 +78,7 @@ public class MemberController {
         }
     }
 
+    // Put members by Id
     @PutMapping("/members/{id}")
     public ResponseEntity<Member> updateMember(@PathVariable("id") long id, @RequestBody Member member) {
         Optional<Member> memberData = memberRepository.findById(id);
@@ -93,6 +95,7 @@ public class MemberController {
         }
     }
 
+    // Delete members by id
     @DeleteMapping("/members/{id}")
     public ResponseEntity<HttpStatus> deleteMember(@PathVariable("id") long id) {
         try {
