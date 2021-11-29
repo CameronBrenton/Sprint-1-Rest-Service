@@ -1,3 +1,4 @@
+// PastTournament Class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
@@ -7,6 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 public class PastTournament {
+    // Instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,14 +17,17 @@ public class PastTournament {
     @JoinColumn(name = "past_tournament_id")
     private Tournament tournament;
 
+    // Default Constructor
     public PastTournament() {
     }
 
+    // Parameterized Constructor
     public PastTournament(LocalDate pastTournamentDate, Tournament tournament) {
         this.pastTournamentDate = pastTournamentDate;
         this.tournament = tournament;
     }
 
+    // Getters and Setters
     public LocalDate getPastTournamentDate() {
         return pastTournamentDate;
     }

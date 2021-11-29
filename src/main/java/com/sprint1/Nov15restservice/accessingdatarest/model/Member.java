@@ -1,3 +1,4 @@
+// Member Class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import javax.persistence.*;
@@ -5,6 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Member {
+    // Instance Variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -22,9 +24,11 @@ public class Member {
     @JoinColumn(name = "past_tournaments_id")
     private PastTournament pastTournaments;
 
+    // Default Constructor
     public Member() {
     }
 
+    // Parameterized Constructor
     public Member(Person person, LocalDate membershipStartDate, LocalDate membershipDuration, String membershipType, CurrentTournament currentTournament, PastTournament pastTournament) {
         this.person = person;
         this.membershipStartDate = membershipStartDate;
@@ -35,6 +39,7 @@ public class Member {
     }
 
 
+    // Setters and Getters
     public Person getPerson() {
         return person;
     }
