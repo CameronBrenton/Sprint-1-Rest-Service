@@ -1,3 +1,4 @@
+// CurrentTournament Class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import javax.persistence.*;
@@ -5,6 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 public class CurrentTournament {
+    // Instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -14,14 +16,17 @@ public class CurrentTournament {
     @JoinColumn(name = "current_tournament_id")
     private Tournament tournament;
 
+    // Default Constructor
     public CurrentTournament() {
     }
 
+    // Parameterized Constructor
     public CurrentTournament(LocalDate currentTournamentDate, Tournament tournament) {
         this.currentTournamentDate = currentTournamentDate;
         this.tournament = tournament;
     }
 
+    // Getters and Setters
     public Tournament getTournament() {
         return tournament;
     }

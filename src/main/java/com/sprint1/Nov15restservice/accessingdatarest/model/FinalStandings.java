@@ -1,9 +1,11 @@
+// FinalStandings class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import javax.persistence.*;
 
 @Entity
 public class FinalStandings{
+    // Instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,15 +17,18 @@ public class FinalStandings{
     private Tournament tournament;
     private int score;
 
+    // Default Constructor
     public FinalStandings() {
     }
 
+    //Parameterized Constructor
     public FinalStandings(Person person, Tournament tournament, int score) {
         this.person = person;
         this.tournament = tournament;
         this.score = score;
     }
 
+    // Getters and Setters
     public Tournament getTournament() {
         return tournament;
     }

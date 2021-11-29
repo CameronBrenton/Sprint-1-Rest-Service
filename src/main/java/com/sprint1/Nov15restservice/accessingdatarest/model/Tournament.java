@@ -1,3 +1,4 @@
+// Tournament Class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import javax.persistence.*;
@@ -5,6 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Tournament{
+    // Instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -21,9 +23,11 @@ public class Tournament{
     @JoinColumn(name = "final_standings_id")
     private FinalStandings finalStandings;
 
+    // Default Constructor
     public Tournament() {
     }
 
+    // Parameterized Constructor
     public Tournament(LocalDate startDate, LocalDate endDate, String location, double entryFee, double cashPrizeAmount, Person participatingMembers, FinalStandings finalStandings) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -34,6 +38,7 @@ public class Tournament{
         this.finalStandings = finalStandings;
     }
 
+    // Getters and Setters
     public LocalDate getStartDate() {
         return startDate;
     }

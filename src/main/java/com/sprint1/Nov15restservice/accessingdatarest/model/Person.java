@@ -1,11 +1,11 @@
+// Person Class
 package com.sprint1.Nov15restservice.accessingdatarest.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Person{
+    // Instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,10 +15,12 @@ public class Person{
     private String email;
     private String phoneNumber;
 
+    // Default Constructor
     public Person(){
 
     }
 
+    // Parameterized Constructor
     public Person(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +28,7 @@ public class Person{
         this.phoneNumber = phoneNumber;
     }
 
+    // Getters and Setters
     public String getFirstName() {
         return firstName;
     }
