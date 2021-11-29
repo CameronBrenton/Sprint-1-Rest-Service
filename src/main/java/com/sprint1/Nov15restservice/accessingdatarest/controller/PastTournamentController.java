@@ -1,3 +1,4 @@
+// PastTournament Controller class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import java.util.ArrayList;
@@ -5,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.PastTournament;
-import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.PastTournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +28,7 @@ public class PastTournamentController {
     @Autowired
     PastTournamentRepository pastTournamentRepository;
 
+    // Get all past tournaments
     @GetMapping("/pastTournaments")
     public ResponseEntity<List<PastTournament>> getAllPastTournaments(@RequestParam(required = false) String pastTournamentDate) {
         try {
@@ -50,6 +51,7 @@ public class PastTournamentController {
 
     }
 
+    // Get past tournaments by Id
     @GetMapping("/pastTournaments/{id}")
     public ResponseEntity<PastTournament> getPastTournamentById(@PathVariable("id") long id) {
 
@@ -63,6 +65,7 @@ public class PastTournamentController {
 
     }
 
+    // Post past tournaments
     @PostMapping("/pastTournaments")
     public ResponseEntity<PastTournament> postPastTournament(@RequestBody PastTournament pastTournament) {
         try {
@@ -74,6 +77,7 @@ public class PastTournamentController {
         }
     }
 
+    // Put past tournaments by Id
     @PutMapping("/pastTournaments/{id}")
     public ResponseEntity<PastTournament> updatePastTournament(@PathVariable("id") long id, @RequestBody PastTournament PastTournament) {
         Optional<PastTournament> pastTournamentData = pastTournamentRepository.findById(id);
@@ -88,6 +92,7 @@ public class PastTournamentController {
         }
     }
 
+    // Delete past tournaments by id
     @DeleteMapping("/pastTournaments/{id}")
     public ResponseEntity<HttpStatus> deletePastTournament(@PathVariable("id") long id) {
         try {

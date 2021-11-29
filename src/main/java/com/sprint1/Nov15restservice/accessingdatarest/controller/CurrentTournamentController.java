@@ -1,11 +1,10 @@
+// CurrentTournaments Class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.sprint1.Nov15restservice.accessingdatarest.model.FutureTournament;
-import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +29,7 @@ public class CurrentTournamentController {
     @Autowired
     CurrentTournamentRepository currentTournamentsRepository;
 
+    // Get all CurrentTournaments
     @GetMapping("/currentTournaments")
     public ResponseEntity<List<CurrentTournament>> getAllCurrentTournaments(@RequestParam(required = false) String currentTournamentDate) {
         try {
@@ -51,17 +51,7 @@ public class CurrentTournamentController {
         }
     }
 
-    @PostMapping("/currentTournaments")
-    public ResponseEntity<CurrentTournament> postTournament(@RequestBody CurrentTournament currentTournament) {
-        try {
-            CurrentTournament _currentTournament = currentTournamentsRepository
-                    .save(new CurrentTournament(currentTournament.getCurrentTournamentDate(), currentTournament.getTournament()));
-            return new ResponseEntity<>(_currentTournament, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
+    // Get all CurrentTournaments
     @GetMapping("/currentTournaments/{id}")
     public ResponseEntity<CurrentTournament> getCurrentTournamentById(@PathVariable("id") long id) {
 
@@ -75,6 +65,20 @@ public class CurrentTournamentController {
 
     }
 
+    // Post CurrentTournaments by Id
+    @PostMapping("/currentTournaments")
+    public ResponseEntity<CurrentTournament> postTournament(@RequestBody CurrentTournament currentTournament) {
+        try {
+            CurrentTournament _currentTournament = currentTournamentsRepository
+                    .save(new CurrentTournament(currentTournament.getCurrentTournamentDate(), currentTournament.getTournament()));
+            return new ResponseEntity<>(_currentTournament, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    // Put CurrentTournaments by id
     @PutMapping("/currentTournaments/{id}")
     public ResponseEntity<CurrentTournament> updateCurrentTournament(@PathVariable("id") long id, @RequestBody CurrentTournament currentTournament) {
         Optional<CurrentTournament> currentTournamentData = currentTournamentsRepository.findById(id);
@@ -89,6 +93,7 @@ public class CurrentTournamentController {
         }
     }
 
+    // Delete CurrentTournament by Id
     @DeleteMapping("/currentTournaments/{id}")
     public ResponseEntity<HttpStatus> deleteCurrentTournament(@PathVariable("id") long id) {
         try {

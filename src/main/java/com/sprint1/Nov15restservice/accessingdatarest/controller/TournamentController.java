@@ -1,4 +1,4 @@
-//CRUD
+// Tournament Controller Class
 package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import java.util.ArrayList;
@@ -24,6 +24,7 @@ public class TournamentController {
     @Autowired
     TournamentRepository tournamentRepository;
 
+    // Get all tournaments
     @GetMapping("/tournament")
     public ResponseEntity<List<Tournament>> getAllTournaments(@RequestParam(required = false) String startDate) {
         try {
@@ -44,6 +45,7 @@ public class TournamentController {
         }
     }
 
+    // Get all tournaments by id
     @GetMapping("/tournament/{id}")
     public ResponseEntity<Tournament> getTournamentById(@PathVariable("id") long id) {
 
@@ -57,6 +59,7 @@ public class TournamentController {
 
     }
 
+    // Post all tournaments
     @PostMapping("/tournament")
     public ResponseEntity<Tournament> postTournament(@RequestBody Tournament tournament) {
         try {
@@ -68,6 +71,7 @@ public class TournamentController {
         }
     }
 
+    // Put tournaments by Id
     @PutMapping("/tournament/{id}")
     public ResponseEntity<Tournament> updateTournament(@PathVariable("id") long id, @RequestBody Tournament tournament) {
         Optional<Tournament> tournamentData = tournamentRepository.findById(id);
@@ -87,6 +91,7 @@ public class TournamentController {
         }
     }
 
+    // Delete tournaments by Id
     @DeleteMapping("/tournament/{id}")
     public ResponseEntity<HttpStatus> deleteTournament(@PathVariable("id") long id) {
         try {
