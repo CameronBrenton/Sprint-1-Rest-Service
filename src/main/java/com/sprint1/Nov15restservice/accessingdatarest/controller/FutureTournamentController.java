@@ -42,6 +42,19 @@ public class FutureTournamentController {
 
     }
 
+    @GetMapping("/futureTournaments/{id}")
+    public ResponseEntity<FutureTournament> getFutureTournamentById(@PathVariable("id") long id) {
+
+        Optional<FutureTournament> futureTournament = futureTournamentRepository.findById(id);
+
+        if (futureTournament.isPresent()){
+            return new ResponseEntity<>(futureTournament.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
     @PostMapping("/futureTournaments")
     public ResponseEntity<FutureTournament> postFutureTournament(@RequestBody FutureTournament futureTournament) {
         try {

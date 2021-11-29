@@ -2,6 +2,7 @@ package com.sprint1.Nov15restservice.accessingdatarest.controller;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.FinalStandings;
 
+import com.sprint1.Nov15restservice.accessingdatarest.model.FutureTournament;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.FinalStandingsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,19 @@ public class FinalStandingsController {
             return new ResponseEntity<>(finalStandings, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @GetMapping("/finalStandings/{id}")
+    public ResponseEntity<FinalStandings> getFinalStandingsById(@PathVariable("id") long id) {
+
+        Optional<FinalStandings> finalStandings = finalStandingsRepository.findById(id);
+
+        if (finalStandings.isPresent()){
+            return new ResponseEntity<>(finalStandings.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }

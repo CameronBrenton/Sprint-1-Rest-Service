@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.sprint1.Nov15restservice.accessingdatarest.model.FutureTournament;
 import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,6 +60,19 @@ public class CurrentTournamentController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/currentTournaments/{id}")
+    public ResponseEntity<CurrentTournament> getCurrentTournamentById(@PathVariable("id") long id) {
+
+        Optional<CurrentTournament> currentTournament = currentTournamentsRepository.findById(id);
+
+        if (currentTournament.isPresent()){
+            return new ResponseEntity<>(currentTournament.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @PutMapping("/currentTournaments/{id}")

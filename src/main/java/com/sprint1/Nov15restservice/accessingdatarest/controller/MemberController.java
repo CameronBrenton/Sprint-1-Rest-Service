@@ -52,6 +52,19 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/members/{id}")
+    public ResponseEntity<Member> getMemberById(@PathVariable("id") long id) {
+
+        Optional<Member> memberData = memberRepository.findById(id);
+
+        if (memberData.isPresent()){
+            return new ResponseEntity<>(memberData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
     @PostMapping("/members")
     public ResponseEntity<Member> postMember(@RequestBody Member member) {
         try {

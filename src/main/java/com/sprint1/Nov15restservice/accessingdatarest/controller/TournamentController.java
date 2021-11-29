@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.sprint1.Nov15restservice.accessingdatarest.model.Member;
 import com.sprint1.Nov15restservice.accessingdatarest.model.Person;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.PersonRepository;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.TournamentRepository;
@@ -41,6 +42,19 @@ public class TournamentController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/tournament/{id}")
+    public ResponseEntity<Tournament> getTournamentById(@PathVariable("id") long id) {
+
+        Optional<Tournament> tournamentData = tournamentRepository.findById(id);
+
+        if (tournamentData.isPresent()){
+            return new ResponseEntity<>(tournamentData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @PostMapping("/tournament")
