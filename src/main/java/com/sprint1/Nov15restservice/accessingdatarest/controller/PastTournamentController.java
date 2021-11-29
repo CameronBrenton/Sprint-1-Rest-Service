@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sprint1.Nov15restservice.accessingdatarest.model.PastTournament;
+import com.sprint1.Nov15restservice.accessingdatarest.model.Tournament;
 import com.sprint1.Nov15restservice.accessingdatarest.repository.PastTournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +46,19 @@ public class PastTournamentController {
             return new ResponseEntity<>(pastTournament, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @GetMapping("/pastTournaments/{id}")
+    public ResponseEntity<PastTournament> getPastTournamentById(@PathVariable("id") long id) {
+
+        Optional<PastTournament> pastTournamentData = pastTournamentRepository.findById(id);
+
+        if (pastTournamentData.isPresent()){
+            return new ResponseEntity<>(pastTournamentData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }
